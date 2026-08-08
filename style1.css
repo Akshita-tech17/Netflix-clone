@@ -1,6 +1,6 @@
 ```css
 /* =========================================
-   GLOBAL
+   RESET
 ========================================= */
 
 * {
@@ -12,13 +12,12 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100%;
-    background-color: black;
     overflow-x: hidden;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
 }
 
 img {
@@ -26,40 +25,10 @@ img {
     max-width: 100%;
 }
 
-
-/* =========================================
-   HERO / MAIN SECTION
-========================================= */
-
-.main {
-    width: 100%;
-    min-height: 100vh;
-
-    background-image: url("assets/images/goodbg1.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    position: relative;
-}
-
-.box {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 96vh;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.9),
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.9)
-    );
-
-    z-index: 1;
+button,
+input,
+select {
+    font-family: inherit;
 }
 
 
@@ -68,11 +37,11 @@ img {
 ========================================= */
 
 nav {
-    height: 62px;
-    width: 80vw;
+    width: 90%;
     max-width: 1200px;
+    height: 70px;
 
-    margin: 20px auto 0;
+    margin: 15px auto 0;
 
     display: flex;
     justify-content: space-between;
@@ -82,26 +51,17 @@ nav {
     z-index: 10;
 }
 
-nav div {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-
-/* Netflix logo */
-
 .logo {
     width: 120px;
-    height: 80px;
-
-    padding: 10px;
-
+    height: auto;
     object-fit: contain;
 }
 
-
-/* Language select + sign in */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 .navbuttons {
     height: 40px;
@@ -109,33 +69,62 @@ nav div {
 
     padding: 0 12px;
 
-    background-color: rgba(20, 21, 21, 0.75);
-
-    font-family: sans-serif;
-    font-weight: 400;
+    background-color: rgba(20, 21, 21, 0.8);
 
     color: white;
 
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 5px;
 
     cursor: pointer;
 }
 
-.navbuttons option {
-    background-color: #222;
-    color: white;
+.signin {
+    width: 85px;
+}
+
+.red {
+    background-color: red !important;
+    color: white !important;
+    border: none;
 }
 
 
 /* =========================================
-   RED BUTTON
+   HERO
 ========================================= */
 
-.red {
-    background-color: #e50914 !important;
-    color: white;
-    border: none;
+.main {
+    width: 100%;
+    min-height: 100vh;
+
+    position: relative;
+
+    background-image: url("assets/images/goodbg1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* Dark overlay */
+
+.box {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.9)
+        );
 }
 
 
@@ -144,9 +133,15 @@ nav div {
 ========================================= */
 
 .content {
-    min-height: 90vh;
+    position: relative;
+    z-index: 2;
 
-    padding: 20px;
+    width: 90%;
+    max-width: 1000px;
+
+    min-height: calc(100vh - 70px);
+
+    margin: 0 auto;
 
     display: flex;
     flex-direction: column;
@@ -157,14 +152,11 @@ nav div {
 
     color: white;
 
-    position: relative;
-    z-index: 5;
-
     font-family:
-        "Lucida Sans",
-        "Lucida Sans Regular",
-        "Lucida Grande",
-        "Lucida Sans Unicode",
+        'Lucida Sans',
+        'Lucida Sans Regular',
+        'Lucida Grande',
+        'Lucida Sans Unicode',
         Geneva,
         Verdana,
         sans-serif;
@@ -173,61 +165,68 @@ nav div {
 .content h1 {
     margin: 0 0 20px;
 
-    font-size: clamp(32px, 5vw, 60px);
+    font-size: 48px;
+    line-height: 1.2;
+
     font-weight: 800;
-    line-height: 1.1;
 }
 
-.content .p {
-    color: white;
-    font-size: 18px;
+.p {
     font-weight: 400;
-    line-height: 1.5;
+    font-size: 16px;
 }
 
-.content .p > div {
-    margin: 5px 0;
+.price {
+    margin-bottom: 20px;
+}
+
+.membership {
+    margin-bottom: 20px;
 }
 
 
 /* =========================================
-   HERO EMAIL BUTTONS
+   HERO EMAIL FORM
 ========================================= */
+
+.hero-form {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
 
 .buttons {
     height: 50px;
-    width: 250px;
-
-    margin: 10px 5px;
-
-    padding: 0 15px;
 
     background-color: rgba(20, 21, 21, 0.8);
 
     color: white;
 
-    font-family: sans-serif;
-    font-size: 16px;
-
     border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
+    border-radius: 4px;
+}
+
+.email-input {
+    width: 350px;
+    padding: 0 15px;
+}
+
+.buttons::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+.get-started {
+    width: 150px;
+
+    font-size: 16px;
+    font-weight: bold;
 
     cursor: pointer;
-}
-
-input.buttons {
-    outline: none;
-}
-
-input.buttons::placeholder {
-    color: white;
-    opacity: 0.8;
-}
-
-button.buttons {
-    width: 180px;
-    border: none;
-    font-weight: 700;
 }
 
 
@@ -236,44 +235,35 @@ button.buttons {
 ========================================= */
 
 .curve {
+    height: 5px;
+
     width: 100%;
-    height: 45px;
 
-    margin-top: -85px;
-
-    border-top-left-radius: 50% 100%;
-    border-top-right-radius: 50% 100%;
-
-    border-top: 4px solid #ff0033;
-
-    box-shadow:
-        -4em 2em 2em rgb(76, 7, 239) inset;
-
-    position: relative;
-    z-index: 5;
+    background: linear-gradient(
+        to right,
+        transparent,
+        red,
+        transparent
+    );
 }
 
 
 /* =========================================
-   SECTION HEADINGS
+   SECTION TITLES
 ========================================= */
 
 .section {
-    margin: 40px;
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 40px auto 20px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 28px;
+    font-weight: bold;
 
     color: white;
-
-    font-family:
-        Cambria,
-        Cochin,
-        Georgia,
-        Times,
-        "Times New Roman",
-        serif;
-
-    font-weight: 600;
-
-    font-size: xx-large;
 }
 
 
@@ -282,151 +272,87 @@ button.buttons {
 ========================================= */
 
 .image {
-    width: 100%;
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 20px auto;
 
     display: flex;
-    flex-direction: row;
-    align-items: center;
 
-    gap: 30px;
-
-    padding: 20px 50px;
-    margin: 20px 0;
+    gap: 20px;
 
     overflow-x: auto;
-    overflow-y: hidden;
 
-    scroll-behavior: smooth;
+    padding: 5px 5px 20px;
+
+    scrollbar-width: thin;
 }
-
-
-/* Hide scrollbar */
-
-.image::-webkit-scrollbar {
-    height: 6px;
-}
-
-.image::-webkit-scrollbar-track {
-    background: #111;
-}
-
-.image::-webkit-scrollbar-thumb {
-    background: #444;
-    border-radius: 10px;
-}
-
-
-/* Movie posters */
 
 .movie {
-    width: 220px;
-    height: 320px;
+    flex: 0 0 auto;
 
-    min-width: 220px;
-
-    border-radius: 15px;
+    width: 180px;
+    height: 250px;
 
     object-fit: cover;
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    border-radius: 6px;
+
+    transition: transform 0.2s ease;
 }
 
 .movie:hover {
-    transform: scale(1.05);
-
-    box-shadow:
-        0 10px 30px rgba(255, 0, 0, 0.35);
+    transform: scale(1.03);
 }
 
 
 /* =========================================
-   MORE REASONS SECTION
+   MORE REASONS
 ========================================= */
 
 .big {
-    width: 100%;
+    width: 90%;
+    max-width: 1200px;
 
-    display: flex;
-    flex-direction: column;
+    margin: 20px auto;
 
-    justify-content: space-around;
+    display: grid;
 
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
 
-    padding-bottom: 30px;
+    gap: 20px;
 }
 
 .item {
-    width: 90vw;
-    min-height: 180px;
+    min-width: 0;
 
-    margin: 10px auto;
+    min-height: 220px;
 
-    padding: 20px;
+    padding: 25px;
 
-    border-radius: 30px;
+    border-radius: 15px;
 
-    background: linear-gradient(
-        135deg,
-        #1a1f4b 0%,
-        #2d1b69 40%,
-        #5a1e5c 75%,
-        #8b2349 100%
-    );
-
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    box-shadow:
-        0 0 30px rgba(255, 0, 80, 0.15),
-        inset 0 0 50px rgba(255, 255, 255, 0.03);
-
-    color: white;
-
-    overflow: hidden;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    background:
+        linear-gradient(
+            135deg,
+            #1d1730,
+            #17172d
+        );
 }
-
-.item:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 10px 40px rgba(255, 0, 80, 0.2),
-        inset 0 0 50px rgba(255, 255, 255, 0.03);
-}
-
-
-/* Card heading */
 
 .p1 {
-    margin: 5px 0 10px;
+    margin-bottom: 20px;
 
-    font-family: sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-
-    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-
-/* Card description */
-
 .p2 {
-    margin: 0;
-
-    padding: 0;
-
-    font-family: sans-serif;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 14px;
 
     line-height: 1.6;
 
-    color: #c4c4c4;
+    color: #ddd;
 }
 
 
@@ -435,168 +361,132 @@ button.buttons {
 ========================================= */
 
 .list {
-    width: 100%;
+    width: 90%;
+    max-width: 1200px;
 
-    display: flex;
-    flex-direction: column;
-
-    gap: 5px;
-
-    margin-bottom: 50px;
+    margin: 20px auto;
 }
 
-details {
+.list details {
     width: 100%;
+
+    margin-bottom: 8px;
+
+    background-color: #2d2d2d;
+
+    color: white;
 }
 
-details summary {
-    width: 85vw;
-    min-height: 70px;
-
-    margin: 0 auto;
+.list summary {
+    width: 100%;
 
     padding: 20px;
 
     display: flex;
+
     justify-content: space-between;
     align-items: center;
 
-    background-color: rgb(68, 67, 67);
-
-    color: white;
-
-    font-size: 20px;
+    gap: 15px;
 
     cursor: pointer;
 
+    font-size: 18px;
+
     list-style: none;
-
-    transition: background-color 0.2s ease;
 }
 
-details summary:hover {
-    background-color: rgb(85, 84, 84);
-}
-
-details summary::-webkit-details-marker {
+.list summary::-webkit-details-marker {
     display: none;
 }
 
-details div {
-    width: 85vw;
+.list details > div {
+    padding: 0 20px 20px;
 
-    margin: 0 auto;
-
-    padding: 25px;
-
-    background-color: rgb(48, 47, 47);
-
-    color: white;
-
-    font-size: 17px;
+    font-size: 15px;
 
     line-height: 1.6;
+
+    color: #ddd;
+
+    overflow-wrap: break-word;
 }
 
 .plus {
-    font-size: 35px;
-    font-weight: bolder;
+    flex-shrink: 0;
 
-    transition: transform 0.2s ease;
-}
-
-details[open] .plus {
-    transform: rotate(45deg);
+    font-size: 30px;
 }
 
 
 /* =========================================
-   READY / EMAIL SECTION
+   READY TO WATCH
 ========================================= */
 
 .ready {
-    margin: 30px 20px;
+    width: 90%;
+    max-width: 800px;
 
-    color: white;
-
-    font-size: 18px;
-    font-weight: 400;
+    margin: 60px auto 20px;
 
     text-align: center;
-}
 
-.but {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 10px;
-
-    margin-bottom: 50px;
-}
-
-.mail {
-    width: 40vw;
-    height: 50px;
-
-    padding: 0 15px;
-
-    color: white;
-
-    background-color: black;
-
-    border: 1px solid white;
-    border-radius: 5px;
+    font-family: Arial, sans-serif;
 
     font-size: 16px;
 }
 
-.mail::placeholder {
-    color: rgb(186, 166, 166);
+.but {
+    width: 90%;
+    max-width: 700px;
+
+    margin: 0 auto 50px;
+
+    display: flex;
+
+    gap: 10px;
 }
 
-.mail:focus {
-    outline: 2px solid #e50914;
-}
+.mail {
+    flex: 1;
 
+    min-width: 0;
 
-/* =========================================
-   GET STARTED BUTTON
-========================================= */
-
-/*
-   You used <buttons> in your HTML.
-   CSS can still style it as a custom element.
-*/
-
-buttons.start {
-    width: 200px;
     height: 50px;
 
-    padding: 0 20px;
+    padding: 0 15px;
+
+    background-color: rgba(20, 21, 21, 0.8);
 
     color: white;
 
-    background-color: rgb(227, 13, 24);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    border-radius: 4px;
+}
+
+.mail::placeholder {
+    color: white;
+}
+
+.start {
+    height: 50px;
+
+    padding: 0 25px;
+
+    background-color: red;
+
+    color: white;
+
+    border: none;
 
     border-radius: 5px;
 
-    font-size: 20px;
-    font-weight: 800;
+    font-size: 16px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
+    font-weight: bold;
 
     cursor: pointer;
-
-    transition: background-color 0.2s ease;
-}
-
-buttons.start:hover {
-    background-color: #b20710;
 }
 
 
@@ -605,226 +495,364 @@ buttons.start:hover {
 ========================================= */
 
 .end {
-    color: grey;
+    width: 90%;
+    max-width: 1200px;
 
-    font-size: medium;
+    margin-left: auto;
+    margin-right: auto;
 
-    margin-left: 70px;
+    color: #aaa;
 
-    padding: 10px;
+    font-family: Arial, sans-serif;
+
+    line-height: 1.5;
 }
 
-.end h3 {
-    font-weight: 400;
+.end a {
+    color: #aaa;
 }
-
-a {
-    color: rgb(180, 165, 165);
-
-    text-decoration: underline;
-
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: white;
-}
-
-
-/* Footer columns */
 
 .ending {
-    width: 90vw;
+    width: 90%;
+    max-width: 1200px;
 
-    margin: 0 auto;
+    margin: 30px auto;
 
-    padding: 20px 0;
+    display: grid;
 
-    display: flex;
-    flex-direction: row;
+    grid-template-columns: repeat(4, 1fr);
 
-    justify-content: space-between;
-
-    gap: 20px;
+    gap: 30px;
 }
 
 .sty {
     display: flex;
+
     flex-direction: column;
 
-    margin: 40px;
-
     gap: 15px;
+}
 
-    font-size: larger;
+.sty a {
+    color: #aaa;
+
+    font-size: 14px;
+
+    text-decoration: underline;
+}
+
+.bottom-language {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 30px auto;
+}
+
+.bottom-language .navbuttons {
+    width: 120px;
+}
+
+.bottom-text {
+    margin-bottom: 20px;
+}
+
+.recaptcha {
+    margin-bottom: 50px;
+
+    font-size: 13px;
 }
 
 
 /* =========================================
-   FOOTER LANGUAGE SELECT
+   TABLET
 ========================================= */
 
-.ending + div .navbuttons {
-    margin-left: 70px;
-}
-
-
-/* =========================================
-   MOBILE RESPONSIVE
-========================================= */
-
-@media (max-width: 768px) {
-
-    /* Navbar */
+@media (max-width: 900px) {
 
     nav {
-        width: 90vw;
+        width: 92%;
     }
 
     .logo {
         width: 100px;
-        height: 70px;
     }
 
     .navbuttons {
-        width: 110px;
-        height: 36px;
-        font-size: 13px;
+        width: 120px;
     }
 
-
-    /* Hero */
-
-    .content {
-        min-height: 90vh;
-        padding: 15px;
+    .signin {
+        width: 75px;
     }
 
     .content h1 {
-        font-size: 35px;
+        font-size: 42px;
     }
 
-    .content .p {
-        font-size: 15px;
+    .big {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .buttons {
-        width: 70vw;
-        max-width: 350px;
-    }
-
-    button.buttons {
-        width: 180px;
-    }
-
-
-    /* Section */
-
-    .section {
-        margin: 30px 20px;
-
-        font-size: 28px;
-    }
-
-
-    /* Movies */
-
-    .image {
-        padding: 20px;
-        gap: 20px;
+    .ending {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .movie {
-        width: 180px;
-        height: 260px;
-        min-width: 180px;
+        width: 160px;
+        height: 225px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    /* NAVBAR */
+
+    nav {
+        width: 92%;
+
+        height: 55px;
+
+        margin-top: 10px;
+    }
+
+    .logo {
+        width: 85px;
+    }
+
+    .nav-right {
+        gap: 5px;
+    }
+
+    .navbuttons {
+        height: 35px;
+
+        padding: 0 7px;
+
+        font-size: 11px;
+    }
+
+    .language {
+        width: 75px;
+    }
+
+    .signin {
+        width: 65px;
     }
 
 
-    /* Cards */
+    /* HERO */
+
+    .main {
+        min-height: 100vh;
+
+        background-position: center;
+    }
+
+    .content {
+        width: 90%;
+
+        min-height: calc(100vh - 55px);
+
+        padding-top: 30px;
+    }
+
+    .content h1 {
+        font-size: 30px;
+
+        line-height: 1.2;
+
+        margin-bottom: 20px;
+    }
+
+    .content h1 div {
+        display: block;
+    }
+
+    .p {
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .price {
+        margin-bottom: 15px;
+    }
+
+    .membership {
+        margin-bottom: 15px;
+    }
+
+
+    /* HERO FORM */
+
+    .hero-form {
+        width: 100%;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .email-input {
+        width: 100%;
+
+        max-width: 350px;
+    }
+
+    .get-started {
+        width: 150px;
+    }
+
+
+    /* SECTION */
+
+    .section {
+        width: 90%;
+
+        margin-top: 30px;
+
+        font-size: 22px;
+    }
+
+
+    /* MOVIES */
+
+    .image {
+        width: 90%;
+
+        gap: 12px;
+
+        padding-bottom: 15px;
+
+        scrollbar-width: none;
+    }
+
+    .image::-webkit-scrollbar {
+        display: none;
+    }
+
+    .movie {
+        width: 120px;
+        height: 170px;
+    }
+
+
+    /* MORE REASONS */
+
+    .big {
+        width: 90%;
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
 
     .item {
-        width: 90vw;
-        min-height: 170px;
+        min-height: auto;
 
         padding: 20px;
     }
 
     .p1 {
-        font-size: 21px;
+        font-size: 19px;
+
+        margin-bottom: 12px;
     }
 
     .p2 {
-        font-size: 15px;
+        font-size: 14px;
     }
 
 
     /* FAQ */
 
-    details summary {
-        width: 90vw;
-
-        min-height: 65px;
-
-        padding: 15px;
-
-        font-size: 17px;
+    .list {
+        width: 90%;
     }
 
-    details div {
-        width: 90vw;
-
-        padding: 20px;
+    .list summary {
+        padding: 17px 15px;
 
         font-size: 15px;
     }
 
+    .list details > div {
+        padding: 0 15px 17px;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
     .plus {
-        font-size: 28px;
+        font-size: 25px;
     }
 
 
-    /* Email */
+    /* READY */
+
+    .ready {
+        width: 90%;
+
+        margin-top: 45px;
+
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
 
     .but {
+        width: 90%;
+
         flex-direction: column;
 
-        gap: 15px;
+        gap: 10px;
     }
 
     .mail {
-        width: 80vw;
+        width: 100%;
+
+        height: 50px;
     }
 
-    buttons.start {
-        width: 200px;
+    .start {
+        width: 100%;
+
+        height: 50px;
     }
 
 
-    /* Footer */
+    /* FOOTER */
 
     .ending {
-        flex-direction: column;
+        width: 90%;
 
-        width: 90vw;
+        grid-template-columns: repeat(2, 1fr);
 
-        gap: 0;
+        gap: 25px 15px;
     }
 
     .sty {
-        margin: 15px 0;
-
         gap: 12px;
+    }
 
-        font-size: medium;
+    .sty a {
+        font-size: 12px;
     }
 
     .end {
-        margin-left: 20px;
+        width: 90%;
+
+        font-size: 13px;
     }
 
-    .ending + div .navbuttons {
-        margin-left: 20px;
+    .bottom-language {
+        width: 90%;
     }
 }
 
@@ -833,65 +861,49 @@ a:hover {
    SMALL PHONES
 ========================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 380px) {
 
     nav {
-        width: 94vw;
+        width: 94%;
     }
 
     .logo {
-        width: 90px;
+        width: 75px;
     }
 
-    .navbuttons {
-        width: 90px;
-        font-size: 11px;
+    .language {
+        width: 65px;
+        font-size: 10px;
+    }
+
+    .signin {
+        width: 60px;
+        font-size: 10px;
     }
 
     .content h1 {
-        font-size: 28px;
+        font-size: 26px;
     }
 
-    .content .p {
-        font-size: 14px;
-    }
-
-    .buttons {
-        width: 85vw;
-    }
-
-    .section {
-        font-size: 24px;
+    .content {
+        padding-top: 20px;
     }
 
     .movie {
-        width: 160px;
-        height: 230px;
-        min-width: 160px;
+        width: 105px;
+        height: 150px;
     }
 
-    .item {
-        border-radius: 20px;
+    .section {
+        font-size: 20px;
     }
 
-    .p1 {
-        font-size: 19px;
+    .ending {
+        gap: 20px 10px;
     }
 
-    .p2 {
-        font-size: 14px;
-    }
-
-    details summary {
-        font-size: 15px;
-    }
-
-    details div {
-        font-size: 14px;
-    }
-
-    .mail {
-        width: 85vw;
+    .sty a {
+        font-size: 11px;
     }
 }
 ```
