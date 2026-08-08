@@ -1,0 +1,897 @@
+```css
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: black;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* =========================================
+   HERO / MAIN SECTION
+========================================= */
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+
+    background-image: url("assets/images/goodbg1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+.box {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 96vh;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.9),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.9)
+    );
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+nav {
+    height: 62px;
+    width: 80vw;
+    max-width: 1200px;
+
+    margin: 20px auto 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    z-index: 10;
+}
+
+nav div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+/* Netflix logo */
+
+.logo {
+    width: 120px;
+    height: 80px;
+
+    padding: 10px;
+
+    object-fit: contain;
+}
+
+
+/* Language select + sign in */
+
+.navbuttons {
+    height: 40px;
+    width: 150px;
+
+    padding: 0 12px;
+
+    background-color: rgba(20, 21, 21, 0.75);
+
+    font-family: sans-serif;
+    font-weight: 400;
+
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.navbuttons option {
+    background-color: #222;
+    color: white;
+}
+
+
+/* =========================================
+   RED BUTTON
+========================================= */
+
+.red {
+    background-color: #e50914 !important;
+    color: white;
+    border: none;
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.content {
+    min-height: 90vh;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    position: relative;
+    z-index: 5;
+
+    font-family:
+        "Lucida Sans",
+        "Lucida Sans Regular",
+        "Lucida Grande",
+        "Lucida Sans Unicode",
+        Geneva,
+        Verdana,
+        sans-serif;
+}
+
+.content h1 {
+    margin: 0 0 20px;
+
+    font-size: clamp(32px, 5vw, 60px);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.content .p {
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.content .p > div {
+    margin: 5px 0;
+}
+
+
+/* =========================================
+   HERO EMAIL BUTTONS
+========================================= */
+
+.buttons {
+    height: 50px;
+    width: 250px;
+
+    margin: 10px 5px;
+
+    padding: 0 15px;
+
+    background-color: rgba(20, 21, 21, 0.8);
+
+    color: white;
+
+    font-family: sans-serif;
+    font-size: 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+input.buttons {
+    outline: none;
+}
+
+input.buttons::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+button.buttons {
+    width: 180px;
+    border: none;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   CURVE
+========================================= */
+
+.curve {
+    width: 100%;
+    height: 45px;
+
+    margin-top: -85px;
+
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+
+    border-top: 4px solid #ff0033;
+
+    box-shadow:
+        -4em 2em 2em rgb(76, 7, 239) inset;
+
+    position: relative;
+    z-index: 5;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section {
+    margin: 40px;
+
+    color: white;
+
+    font-family:
+        Cambria,
+        Cochin,
+        Georgia,
+        Times,
+        "Times New Roman",
+        serif;
+
+    font-weight: 600;
+
+    font-size: xx-large;
+}
+
+
+/* =========================================
+   TRENDING MOVIES
+========================================= */
+
+.image {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 20px 50px;
+    margin: 20px 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+}
+
+
+/* Hide scrollbar */
+
+.image::-webkit-scrollbar {
+    height: 6px;
+}
+
+.image::-webkit-scrollbar-track {
+    background: #111;
+}
+
+.image::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+
+/* Movie posters */
+
+.movie {
+    width: 220px;
+    height: 320px;
+
+    min-width: 220px;
+
+    border-radius: 15px;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.movie:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 10px 30px rgba(255, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   MORE REASONS SECTION
+========================================= */
+
+.big {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-around;
+
+    gap: 10px;
+
+    padding-bottom: 30px;
+}
+
+.item {
+    width: 90vw;
+    min-height: 180px;
+
+    margin: 10px auto;
+
+    padding: 20px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #1a1f4b 0%,
+        #2d1b69 40%,
+        #5a1e5c 75%,
+        #8b2349 100%
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 0 30px rgba(255, 0, 80, 0.15),
+        inset 0 0 50px rgba(255, 255, 255, 0.03);
+
+    color: white;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 40px rgba(255, 0, 80, 0.2),
+        inset 0 0 50px rgba(255, 255, 255, 0.03);
+}
+
+
+/* Card heading */
+
+.p1 {
+    margin: 5px 0 10px;
+
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+
+    color: white;
+}
+
+
+/* Card description */
+
+.p2 {
+    margin: 0;
+
+    padding: 0;
+
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    color: #c4c4c4;
+}
+
+
+/* =========================================
+   FAQ
+========================================= */
+
+.list {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-bottom: 50px;
+}
+
+details {
+    width: 100%;
+}
+
+details summary {
+    width: 85vw;
+    min-height: 70px;
+
+    margin: 0 auto;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgb(68, 67, 67);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    list-style: none;
+
+    transition: background-color 0.2s ease;
+}
+
+details summary:hover {
+    background-color: rgb(85, 84, 84);
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details div {
+    width: 85vw;
+
+    margin: 0 auto;
+
+    padding: 25px;
+
+    background-color: rgb(48, 47, 47);
+
+    color: white;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+.plus {
+    font-size: 35px;
+    font-weight: bolder;
+
+    transition: transform 0.2s ease;
+}
+
+details[open] .plus {
+    transform: rotate(45deg);
+}
+
+
+/* =========================================
+   READY / EMAIL SECTION
+========================================= */
+
+.ready {
+    margin: 30px 20px;
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    text-align: center;
+}
+
+.but {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 50px;
+}
+
+.mail {
+    width: 40vw;
+    height: 50px;
+
+    padding: 0 15px;
+
+    color: white;
+
+    background-color: black;
+
+    border: 1px solid white;
+    border-radius: 5px;
+
+    font-size: 16px;
+}
+
+.mail::placeholder {
+    color: rgb(186, 166, 166);
+}
+
+.mail:focus {
+    outline: 2px solid #e50914;
+}
+
+
+/* =========================================
+   GET STARTED BUTTON
+========================================= */
+
+/*
+   You used <buttons> in your HTML.
+   CSS can still style it as a custom element.
+*/
+
+buttons.start {
+    width: 200px;
+    height: 50px;
+
+    padding: 0 20px;
+
+    color: white;
+
+    background-color: rgb(227, 13, 24);
+
+    border-radius: 5px;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+buttons.start:hover {
+    background-color: #b20710;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.end {
+    color: grey;
+
+    font-size: medium;
+
+    margin-left: 70px;
+
+    padding: 10px;
+}
+
+.end h3 {
+    font-weight: 400;
+}
+
+a {
+    color: rgb(180, 165, 165);
+
+    text-decoration: underline;
+
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: white;
+}
+
+
+/* Footer columns */
+
+.ending {
+    width: 90vw;
+
+    margin: 0 auto;
+
+    padding: 20px 0;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.sty {
+    display: flex;
+    flex-direction: column;
+
+    margin: 40px;
+
+    gap: 15px;
+
+    font-size: larger;
+}
+
+
+/* =========================================
+   FOOTER LANGUAGE SELECT
+========================================= */
+
+.ending + div .navbuttons {
+    margin-left: 70px;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* Navbar */
+
+    nav {
+        width: 90vw;
+    }
+
+    .logo {
+        width: 100px;
+        height: 70px;
+    }
+
+    .navbuttons {
+        width: 110px;
+        height: 36px;
+        font-size: 13px;
+    }
+
+
+    /* Hero */
+
+    .content {
+        min-height: 90vh;
+        padding: 15px;
+    }
+
+    .content h1 {
+        font-size: 35px;
+    }
+
+    .content .p {
+        font-size: 15px;
+    }
+
+    .buttons {
+        width: 70vw;
+        max-width: 350px;
+    }
+
+    button.buttons {
+        width: 180px;
+    }
+
+
+    /* Section */
+
+    .section {
+        margin: 30px 20px;
+
+        font-size: 28px;
+    }
+
+
+    /* Movies */
+
+    .image {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .movie {
+        width: 180px;
+        height: 260px;
+        min-width: 180px;
+    }
+
+
+    /* Cards */
+
+    .item {
+        width: 90vw;
+        min-height: 170px;
+
+        padding: 20px;
+    }
+
+    .p1 {
+        font-size: 21px;
+    }
+
+    .p2 {
+        font-size: 15px;
+    }
+
+
+    /* FAQ */
+
+    details summary {
+        width: 90vw;
+
+        min-height: 65px;
+
+        padding: 15px;
+
+        font-size: 17px;
+    }
+
+    details div {
+        width: 90vw;
+
+        padding: 20px;
+
+        font-size: 15px;
+    }
+
+    .plus {
+        font-size: 28px;
+    }
+
+
+    /* Email */
+
+    .but {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .mail {
+        width: 80vw;
+    }
+
+    buttons.start {
+        width: 200px;
+    }
+
+
+    /* Footer */
+
+    .ending {
+        flex-direction: column;
+
+        width: 90vw;
+
+        gap: 0;
+    }
+
+    .sty {
+        margin: 15px 0;
+
+        gap: 12px;
+
+        font-size: medium;
+    }
+
+    .end {
+        margin-left: 20px;
+    }
+
+    .ending + div .navbuttons {
+        margin-left: 20px;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 480px) {
+
+    nav {
+        width: 94vw;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    .navbuttons {
+        width: 90px;
+        font-size: 11px;
+    }
+
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .content .p {
+        font-size: 14px;
+    }
+
+    .buttons {
+        width: 85vw;
+    }
+
+    .section {
+        font-size: 24px;
+    }
+
+    .movie {
+        width: 160px;
+        height: 230px;
+        min-width: 160px;
+    }
+
+    .item {
+        border-radius: 20px;
+    }
+
+    .p1 {
+        font-size: 19px;
+    }
+
+    .p2 {
+        font-size: 14px;
+    }
+
+    details summary {
+        font-size: 15px;
+    }
+
+    details div {
+        font-size: 14px;
+    }
+
+    .mail {
+        width: 85vw;
+    }
+}
+```
