@@ -33,6 +33,22 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.educational-disclaimer {
+    background: linear-gradient(90deg, #e06c00, #ff8c00);
+    color: #000000;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
 img {
     display: block;
     max-width: 100%;
